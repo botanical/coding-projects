@@ -15,6 +15,7 @@ public class uniqueChar {
      }
      return true;
   }
+
   public static void main(String args[]) {
      System.out.println( uniqueChar(args[0]) );
   }
