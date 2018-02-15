@@ -1,0 +1,81 @@
+class Node {
+  protected int value;
+  protected Node next;
+
+
+  public Node() {
+    next = null;
+    value = 0;
+  }
+
+  public Node(int v, Node n) {
+    value = v;
+    next = n;
+  }
+
+  public void setNext(Node n) {
+    next = n;
+  }
+
+  public void setValue(int v) {
+    value = v;
+  }
+
+  public Node getNext() {
+    return next;
+  }
+
+  public Node getValue(){
+    return value;
+  }
+}
+
+
+public class linkedlist {
+  
+  protected Node head; 
+  protected Node tail;
+  public int size; 
+
+  public linkedlist() {
+    head = null;
+    tail = null;
+    size = 0;
+  }
+
+  public boolean isEmpty() {
+    return head == null;
+  }
+
+  public int getSize() {
+    return size;
+  }
+
+  public static Node find(Node n) {
+
+
+  }
+
+  public static void delete(Node n) {
+    
+
+
+  }
+
+
+  public static void insert(int val) {
+    Node n_ptr = new Node(val, null);
+    size++;
+
+    if (head == null) {
+      head = n_ptr;
+      tail = head;
+    }
+    else {
+      tail.setNext(n_ptr);
+      tail = n_ptr;
+    }
+  }
+
+}
+
