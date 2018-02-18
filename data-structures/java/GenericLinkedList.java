@@ -7,10 +7,6 @@ class Node<T> {
     this.value = value;
   }
 
-  /*public Node(T v, Node<T> n) {
-    value = v;
-    next = n;
-  }*/
 
   public void setNext(Node<T> n) {
     next = n;
@@ -32,9 +28,9 @@ class Node<T> {
 
 public class GenericLinkedList<T> {
   
-  protected Node<T> head; 
-  protected Node<T> tail;
-  public int size; 
+  protected Node<T> head = null; 
+  protected Node<T> tail = null;
+  public int size = 0; 
 
   /*public GenericLinkedList() {
     head = null;
@@ -53,7 +49,7 @@ public class GenericLinkedList<T> {
   public Node<T> find(Node<T> val) {
     Node<T> n = head;
     while (n != null) {
-      if (n.value == val) {
+      if (n.getValue() == val.getValue()) {
         return n;
       }
       else {
@@ -138,7 +134,6 @@ public class GenericLinkedList<T> {
     GenericLinkedList<Integer> ll_one = new GenericLinkedList<Integer>();
 
     ll_one.insert(new Node<Integer>(1));
-    
     ll_one.display();    
     ll_one.insert(new Node<Integer>(2));
     ll_one.display();    
