@@ -1,9 +1,9 @@
-class Node {
-  protected int value;
-  protected Node next;
+class Node<T> {
+  private T value;
+  private Node<T> next;
 
 
-  public Node() {
+  public Node<T>() {
     next = null;
     value = 0;
   }
@@ -31,13 +31,13 @@ class Node {
 }
 
 
-public class linkedlist {
+public class GenericLinkedList<T> {
   
   protected Node head; 
   protected Node tail;
   public int size; 
 
-  public linkedlist() {
+  public GenericLinkedList<T>() {
     head = null;
     tail = null;
     size = 0;
