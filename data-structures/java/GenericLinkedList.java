@@ -1,3 +1,10 @@
+/* This is a generic, singly Linked List 
+ * implemented in Java. 
+ * Author: Jennifer Tran, 2018
+ * Github: botanical
+ */
+
+
 class Node<T> {
   protected T value;
   protected Node<T> next;
