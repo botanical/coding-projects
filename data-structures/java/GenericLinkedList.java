@@ -1,31 +1,30 @@
 class Node<T> {
-  private T value;
-  private Node<T> next;
+  protected T value;
+  protected Node<T> next;
 
 
-  public Node<T>() {
-    next = null;
-    value = 0;
+  public Node(T value) {
+    this.value = value;
   }
 
-  public Node(int v, Node n) {
+  /*public Node(T v, Node<T> n) {
     value = v;
+    next = n;
+  }*/
+
+  public void setNext(Node<T> n) {
     next = n;
   }
 
-  public void setNext(Node n) {
-    next = n;
-  }
-
-  public void setValue(int v) {
+  public void setValue(T v) {
     value = v;
   }
 
-  public Node getNext() {
+  public Node<T> getNext() {
     return next;
   }
 
-  public int getValue(){
+  public T getValue(){
     return value;
   }
 }
@@ -33,15 +32,15 @@ class Node<T> {
 
 public class GenericLinkedList<T> {
   
-  protected Node head; 
-  protected Node tail;
+  protected Node<T> head; 
+  protected Node<T> tail;
   public int size; 
 
-  public GenericLinkedList<T>() {
+  /*public GenericLinkedList() {
     head = null;
     tail = null;
     size = 0;
-  }
+  }*/
 
   public boolean isEmpty() {
     return head == null;
@@ -51,8 +50,8 @@ public class GenericLinkedList<T> {
     return size;
   }
 
-  public Node find(int val) {
-    Node n = head;
+  public Node<T> find(Node<T> val) {
+    Node<T> n = head;
     while (n != null) {
       if (n.value == val) {
         return n;
@@ -64,10 +63,10 @@ public class GenericLinkedList<T> {
     return n;
   }
 
-  public void delete(int val) {
-     Node n = find(val);
-     Node tmp1 = head;
-     Node tmp2 = tmp1;
+  public void delete(Node<T> val) {
+     Node<T> n = find(val);
+     Node<T> tmp1 = head;
+     Node<T> tmp2 = tmp1;
      // Check if list is empty
      if (head == null) {
        System.out.println("List is empty!");
@@ -105,8 +104,8 @@ public class GenericLinkedList<T> {
   }
 
 
-  public void insert(int val) {
-    Node n_ptr = new Node(val, null);
+  public void insert(Node<T> val) {
+    Node<T> n_ptr = (val);
     size++;
 
     if (head == null) {
@@ -124,7 +123,7 @@ public class GenericLinkedList<T> {
      System.out.println("\n List is Empty\n");
    }
    else {
-     Node tmp = head;
+     Node<T> tmp = head;
      System.out.print("\n\n Elements in linked list are : \n");
      while (tmp.next != null) {
        System.out.println(tmp.value);
@@ -136,17 +135,33 @@ public class GenericLinkedList<T> {
 
 
  public static void main(String args[]) {
-    linkedlist ll_one = new linkedlist();
-    ll_one.insert(1);
-    ll_one.insert(2);
-    ll_one.insert(3);
-    ll_one.insert(4);
-    ll_one.insert(5);
-    ll_one.delete(3);
-    ll_one.insert(1);
-    ll_one.insert(6);
-    ll_one.insert(2);
-    ll_one.delete(2);
+    GenericLinkedList<Integer> ll_one = new GenericLinkedList<Integer>();
+
+    ll_one.insert(new Node<Integer>(1));
+    
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(2));
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(3));
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(4));
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(1));
+    ll_one.display();    
+    ll_one.delete(new Node<Integer>(1));
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(5));
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(6));
+    ll_one.display();    
+    ll_one.delete(new Node<Integer>(4));
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(6));
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(8));
+    ll_one.display();    
+    ll_one.insert(new Node<Integer>(9));
+    
     ll_one.display();    
 
 
